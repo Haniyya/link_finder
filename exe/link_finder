@@ -1,3 +1,12 @@
 #!/usr/bin/env ruby
 
 require 'link_finder'
+
+keyword, *urls = ARGV
+all_urls = []
+urls.each do |url|
+  crawler = LinkFinder::Application.new(keyword)
+  all_urls << crawler.scan(url)
+end
+
+all_urls.each { |url| puts url.to_s.green }

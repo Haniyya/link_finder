@@ -10,11 +10,16 @@ Gem::Specification.new do |spec|
   spec.email         = ['paul.martensen@gmx.de']
 
   spec.summary       = 'Tool to find links with keywords in websites.'
-  spec.description   = 'A simple command line tool to find links with specific keywords in websites.'
-  spec.license       = 'MIT'
+  spec.description   = <<-DESCRIPTION
+  A simple command line tool to find links with specific keywords in websites.
+  DESCRIPTION
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
+  spec.license = 'MIT'
+
+  # Prevent pushing this gem to RubyGems.org.
+  # To allow pushes either set the 'allowed_push_host'
+  # to allow pushing to a single host or delete 
+  # this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
   else
@@ -26,7 +31,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_runtime_dependency 'anemone'
+  spec.add_runtime_dependency 'tty-prompt'
+  spec.add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'colorize'
   spec.add_development_dependency 'bundler', '~> 1.12'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'minitest', '~> 5.0'
+  spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'webmock'
 end
